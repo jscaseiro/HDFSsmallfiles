@@ -95,14 +95,14 @@ Se listar a pagina até o fim, será apresentado o último interpretador criado.
 ## Importando os notebooks no Zeppelin
 Após autenticação no Zeppelin, na página inicial será possível observar a sessão de Notebooks o primeiro link é para a importação. Clicando nele será aberto uma janela para carregar o notebook, informando o nome e informando a localização dos notebooks. Abaixo segue uma rápida explicações dos *cadernos* e dos scripts:
 
-[Small_Files_Pro_-_HDFS_FSCK_Extract_and_Load](https://github.com/jscaseiro/HDFSsmallfiles/Small_Files_Pro_-_HDFS_FSCK_Extract_and_Load.json) - Caderno com interpretador em shell que executa o HDFS FSCK, coleta a informação gerada, trata para transformá-la em csv e carrega para o HDFS.
+[Small_Files_Pro_-_HDFS_FSCK_Extract_and_Load](https://github.com/jscaseiro/HDFSsmallfiles/blob/main/Small_Files_Pro_-_HDFS_FSCK_Extract_and_Load.json) - Caderno com interpretador em shell que executa o HDFS FSCK, coleta a informação gerada, trata para transformá-la em csv e carrega para o HDFS.
 
-[Small_Files_Pro_-_Pyspark_load_csv_to_table](https://github.com/jscaseiro/HDFSsmallfiles/Small_Files_Pro_-_Pyspark_load_csv_to_table.json) - Caderno para criar o database e a tabela com as informações em CSV. As tabelas são criadas no formato parquet e através do pyspark.
+[Small_Files_Pro_-_Pyspark_load_csv_to_table](https://github.com/jscaseiro/HDFSsmallfiles/blob/main/Small_Files_Pro_-_Pyspark_load_csv_to_table.json) - Caderno para criar o database e a tabela com as informações em CSV. As tabelas são criadas no formato parquet e através do pyspark.
 
 Os scripts seguem a mesma função dos cadernos para serem executados no console:
 
-[hdfs_fsck_extract_and_load](https://github.com/jscaseiro/HDFSsmallfiles/hdfs_fsck_extract_and_load.sh)
+[hdfs_fsck_extract_and_load](https://github.com/jscaseiro/HDFSsmallfiles/blob/main/hdfs_fsck_extract_and_load.sh)
 
-[pyspark_load_csv_to_table](https://github.com/jscaseiro/HDFSsmallfiles/pyspark_load_csv_to_table.py)
+[pyspark_load_csv_to_table](https://github.com/jscaseiro/HDFSsmallfiles/blob/main/pyspark_load_csv_to_table.py)
 
 **OBS.:** Antes de executar o script pyspark para a criação da tabela é necessário criar a database smallfiles no Hive (`CREATE DATABASE IF NOT EXISTS smallfiles;`)
