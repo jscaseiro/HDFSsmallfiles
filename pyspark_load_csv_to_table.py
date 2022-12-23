@@ -19,11 +19,24 @@ tblSchema = StructType() \
                 
 tblData = spark.read.csv("hdfs://cdp.18.224.174.227.nip.io:8020/tmp/final_fsck_extract", schema=tblSchema)
 
-tblData.printSchema()
+tblData.cache()
 
-tblData.show(5)
+tblData.count()\
 
-tblData.write.saveAsTable("smallfiles.fsck_smallfiles")
+catalyst_plan = tblData._jdf.queryExecution().logical()
+
+size_bytes = spark._jsparkSession.sessionState().executePlan(catalyst_plan).optimizedPlan().stats().sizeInBytes()
+
+spark.sql("DROP TABLE IF EXISTS smallfiles.fsck_smallfiles")
+
+# Parquet Snappy Compression Ratio 68% (128M + PSCR) and partitioned by extraction date:
+if size_bytes >= 225485783:
+    tblData.write.format('parquet').option('compression','snappy').partitionBy('extract_dt').saveAsTable('smallfiles.fsck_smallfiles')
+    
+else:
+    tblData.write.format("parquet").saveAsTable("smallfiles.fsck_smallfiles")
+    
+tblData.unpersist()
 
 tblraw=spark.sql("select * from smallfiles.fsck_smallfiles limit 5")
 tblraw.show()
