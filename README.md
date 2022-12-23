@@ -93,7 +93,7 @@ Se listar a pagina até o fim, será apresentado o último interpretador criado.
 **OBS.:** Se for necessário utilizar o novo interpretador em algum notebook já criado, será necessário habilitar ou efetuar o "binding" no notebook, clicando no ícone de engrenagem no canto superior direito. Após clicar no ícone, selecionar o interpretador para ficar selecionado "azul" e clicar em "Save".
 
 ## Configuração do interpretador do livy para mostrar todo o conteúdo da coluna quando consultada
-Ir ao menu de interpretadores e na sessão do interpretador **livy**, retirar a seleção da opção `zeppelin.livy.spark.sql.field.truncate`.
+Ir ao menu de interpretadores e na sessão do interpretador **livy**, retirar a seleção da opção `zeppelin.livy.spark.sql.field.truncate`. Depois clicar no botão "Save" no final da sessão de configuração do interpretador.
 
 ## Importando os notebooks no Zeppelin
 Após autenticação no Zeppelin, na página inicial será possível observar a sessão de Notebooks o primeiro link é para a importação. Clicando nele será aberto uma janela para carregar o notebook, informando o nome e informando a localização dos notebooks. Abaixo segue uma rápida explicações dos *cadernos* e dos scripts:
