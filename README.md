@@ -102,6 +102,8 @@ Após autenticação no Zeppelin, na página inicial será possível observar a 
 
 [Small_Files_Pro_-_Pyspark_load_csv_to_table](https://github.com/jscaseiro/HDFSsmallfiles/blob/main/Small_Files_Pro_-_Pyspark_load_csv_to_table.json) - Caderno para criar o database e a tabela com as informações em CSV. As tabelas são criadas no formato parquet e através do pyspark.
 
+[Small_Files_Pro_-_Merging_small_files_in_HDFS](https://github.com/jscaseiro/HDFSsmallfiles/blob/main/Small_Files_Pro_-_Merging_small_files_in_HDFS.json) - Caderno para mesclar os arquivos pequenos gerados pelos relatórios do HDFS FSCK e pode ser usado como exemplo para mesclar arquivos pequenos de diretórios stage ou de dados brutos.
+
 Os scripts seguem a mesma função dos cadernos para serem executados no console:
 
 [hdfs_fsck_extract_and_load](https://github.com/jscaseiro/HDFSsmallfiles/blob/main/hdfs_fsck_extract_and_load.sh)

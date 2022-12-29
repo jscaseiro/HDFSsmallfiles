@@ -15,6 +15,7 @@ tblSchema = StructType() \
                 .add("size_bytes", "integer")\
                 .add("nro_blocks", "integer")\
                 .add("status", "string")\
+                .add("time", "integer")\
                 .add("extract_dt", "date")
                 
 tblData = spark.read.csv("hdfs://cdp.18.224.174.227.nip.io:8020/tmp/final_fsck_extract", schema=tblSchema)
@@ -44,8 +45,8 @@ tblraw.show()
 tblrawdesc=spark.sql("show create table smallfiles.fsck_smallfiles")
 tblrawdesc.show(truncate=False)
 
-tbl=spark.sql("select * from smallfiles.fsck_smallfiles where extract_dt='2022-12-20' limit 5")
+tbl=spark.sql("select * from smallfiles.fsck_smallfiles where extract_dt='2022-12-28' limit 5")
 tbl.show()
 
-tbl=spark.sql("select * from smallfiles.fsck_smallfiles where extract_dt='2022-12-21' limit 5")
+tbl=spark.sql("select * from smallfiles.fsck_smallfiles where extract_dt='2022-12-29' limit 5")
 tbl.show()
