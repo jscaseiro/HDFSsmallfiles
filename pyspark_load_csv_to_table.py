@@ -18,7 +18,7 @@ tblSchema = StructType() \
                 .add("time", "integer")\
                 .add("extract_dt", "date")
                 
-tblData = spark.read.csv("hdfs://cdp.18.224.174.227.nip.io:8020/tmp/final_fsck_extract", schema=tblSchema)
+tblData = spark.read.csv("hdfs://<HDFS-NAMENODE-MASTER-SERVER>:8020/tmp/final_fsck_extract", schema=tblSchema)
 
 tblData.cache()
 
