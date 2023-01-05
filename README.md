@@ -57,6 +57,26 @@ Fonte: https://zeppelin.apache.org/docs/0.8.0/usage/other_features/cron_schedule
 ### Habilitar o User impersonation no Zeppelin
 Para garantir que as execuções dos scripts sejam feitas por um usuário que tenha privilégios administrativos e que o relatório do HDFS FSCK seja completo, faz-se necessário a configuração do impersonate do usuário. Com o usuário configurado para executar comandos sudo sem senha e fazer parte do grupo supergroup, irá garantir que não haja impacto nas execuções e que o relatório fique completo, entretanto, é necessário a avaliação com o time de segurança para entender os *guardrails* necessários ou limitações de comandos através de lista de comandos para execução do sudo.
 
+Para efetuar essa configuração e permitir que o usuário do impersonate funcione, é necessário que o usuário zeppelin consiga executar comandos com o sudo e sem senha, para isso, no servidor onde o zeppelin está instalado, executar no console:
+
+`usermod -aG wheel zeppelin`
+
+`echo "# Created by jcaseiro on" $(date) | tee /etc/sudoers.d/90-zeppelin`
+
+`echo | tee -a /etc/sudoers.d/90-zeppelin`
+
+`echo "# User rules for zeppelin" | tee -a /etc/sudoers.d/90-zeppelin`
+
+`echo "zeppelin ALL=(ALL) NOPASSWD:ALL" | tee -a /etc/sudoers.d/90-zeppelin`
+
+`chmod 440 /etc/sudoers.d/90-zeppelin`
+
+Validação dos grupos que o usuário foi adicionado:
+
+`id zeppelin`
+
+**OBS.:** Lembrando que essa configuração permite a execução de todos os comandos para o usuário zeeeplin e devem ser executados com usuário root.
+
 Acessar o serviço do Zeppelin no Cloudera Manager e selecionar Configuration. No campo de Busca, procurar por `zeppelin-env`, após a filtragem das opções, adicionar as seguintes linhas na caixa de texto (Efetuar a alteração necessária do usuário, conforme necessidade do seu ambiente):
 
 `export ZEPPELIN_IMPERSONATE_USER=centos`
